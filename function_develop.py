@@ -1,20 +1,21 @@
 ## 프로그래머스 스택/큐 기능개발
 
-from collections import deque
-
-def solution(prices):
+def solution(progresses, speeds):
     answer = []
-    queue = deque(prices)
-     
-    while queue:
-        price = queue.popleft()
-        sec = 0
-        for q in queue:
-            sec += 1
-            if price > q:
-                break 
-        answer.append(sec)       
+    time = 0
+    cnt = 0
 
+    while len(progresses) > 0:
+      if (progresses[0] + time*speeds[0]) >= 100:
+        progresses.pop(0)
+        speeds.pop(0)
+        cnt += 1
+        
+      else:
+        if cnt > 0:
+          answer.append(cnt)
+          cnt = 0
+        time += 1
+    answer.append(cnt)
+      
     return answer
-
-print(solution([1, 2, 3, 2, 3]))

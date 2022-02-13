@@ -15,6 +15,4 @@ def solution(prices):
                 break 
         answer.append(sec)       
 
-    return answer
-
-print(solution([1, 2, 3, 2, 3]))
+    return answerg
