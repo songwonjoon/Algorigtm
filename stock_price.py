@@ -15,4 +15,4 @@ def solution(prices):
                 break 
         answer.append(sec)       
 
-    return answerg
+    return answer
